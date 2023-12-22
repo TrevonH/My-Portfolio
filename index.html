@@ -9,33 +9,44 @@
     <link rel="stylesheet" href="mediaqueries.css" />
   </head>
   <body>
-    <nav id="desktop-nav">
-      <div class="logo">Tre'von Herman</div>
-      <div>
+<!-- Desktop Navigation -->
+<nav id="desktop-nav">
+    <div class="nav-container">
+        <div class="logo">Tre'von Herman</div> 
         <ul class="nav-links">
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#experience">My Experience</a></li>
-          <li><a href="#projects">My Projects</a></li>
-          <li><a href="#contact">Contact Info</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#experience">My Experience</a></li>
+            <li><a href="#projects">My Projects</a></li>
+            <li><a href="#contact">Contact Info</a></li>
         </ul>
-      </div>
-    </nav>
-    <nav id="hamburger-nav">
-      <div class="logo">Tre'von Herman</div>
-      <div class="hamburger-menu">
+    </div>
+</nav>
+<!-- Hamburger Navigation -->
+<nav id="hamburger-nav">
+    <div class="logo">Tre'von Herman's Portfolio</div>
+    <div class="hamburger-menu">
         <div class="hamburger-icon" onclick="toggleMenu()">
-          <span></span>
-          <span></span>
-          <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
         <div class="menu-links">
-          <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
-          <li><a href="#experience" onclick="toggleMenu()">My Experience</a></li>
-          <li><a href="#projects" onclick="toggleMenu()">My Projects</a></li>
-          <li><a href="#contact" onclick="toggleMenu()">Contact Info</a></li>
+            <ul>
+                <li><a href="#about" onclick="toggleMenu()">About Me</a></li>
+                <li><a href="#experience" onclick="toggleMenu()">My Experience</a></li>
+                <li><a href="#projects" onclick="toggleMenu()">My Projects</a></li>
+                <li><a href="#contact" onclick="toggleMenu()">Contact Info</a></li>
+            </ul>
         </div>
-      </div>
-    </nav>
+    </div>
+</nav>
+      <!-- JavaScript function to toggle the menu -->
+      <script>
+        function toggleMenu() {
+          var menuLinks = document.querySelector(".menu-links");
+          menuLinks.classList.toggle("open");
+        }
+      </script>
     <section id="profile">
       <div class="section__pic-container">
         <img src="./assets/profile-pic.png" alt="Tre'von's profile picture" />
@@ -72,195 +83,192 @@
       </div>
     </section>
     <section id="about">
-      <p class="section__text__p1">Get To Know More</p>
-      <h1 class="title">About Me</h1>
-      <div class="section-container">
-        <div class="section__pic-container">
-          <img
-            src="./assets/about-pic.png"
-            alt="Profile picture"
-            class="about-pic"
-          />
-        </div>
-        <div class="about-details-container">
-          <div class="about-containers">
-            <div class="details-container">
-              <img
-                src="./assets/experience.png"
-                alt="Experience icon"
-                class="icon"
-              />
-              <h3>Experience</h3>
-              <p>1 year <br />Computer Networks / Security</p>
-              <p>3+ years <br />Graphic Design / Marketing</p>
+        <p class="section__text__p1">Get To Know More</p>
+        <h1 class="title">About Me</h1>
+        <div class="section-container">
+          <div class="section__pic-container">
+            <img
+              src="./assets/about-pic.png"
+              alt="Profile picture"
+              class="about-pic"
+            />
+          </div>
+          <div class="about-details-container">
+            <div class="about-containers">
+              <div class="details-container">
+                <img
+                  src="./assets/experience.png"
+                  alt="Experience icon"
+                  class="icon"
+                />
+                <h3>Experience</h3>
+                <p> 1 year <br />Computer Networks / Security</p>
+                <p> 3+ years <br />Graphic Design / Marketing</p>
+              </div>
+              <div class="details-container">
+                <img
+                  src="./assets/education.png"
+                  alt="Education icon"
+                  class="icon"
+                />
+                <h3>Education</h3>
+                <p>A.Sc. Associates Degree<br />B.Sc. Bachelors Degree (Dec 2024)</p>
+              </div>
             </div>
-            <div class="details-container">
-              <img
-                src="./assets/education.png"
-                alt="Education icon"
-                class="icon"
-              />
-              <h3>Education</h3>
-              <p>A.Sc. Associates Degree<br />B.Sc. Bachelors Degree (Dec 2024)</p>
+            <div class="text-container">
+                <p style="text-align: center;">
+                Skilled Computer Science major experienced in hardware and software implementations. Skilled in critical thinking and able to solve issues with basic troubleshooting. Adaptable to new environments and capable of working with people of diverse backgrounds and cultures. Mindful of completing projects in a timely manner. Focuses on customer service and the result to build a professional rapport.
+              </p>
             </div>
           </div>
-          <div class="text-container">
-            <p>
-              Skilled Computer Science major experienced in hardware and software implementations.  Skilled in critical thinking and able to solve issues with basic troubleshooting.  Adaptable to new environments and capable of working with people of diverse backgrounds and cultures.  Mindful of completing projects in a timely manner. Focuses on customer service and the result to build a professional rapport.
-            </p>
-          </div>
         </div>
-      </div>
-      <img
-        src="./assets/arrow.png"
-        alt="Arrow icon"
-        class="icon arrow"
-        onclick="location.href='./#experience'"
-      />
-    </section>
+        <img
+          src="./assets/arrow.png"
+          alt="Arrow icon"
+          class="icon arrow"
+          onclick="location.href='./#experience'"
+        />
+      </section>
     <section id="experience">
-      <p class="section__text__p1">Check out My</p>
-      <h1 class="title">Experiences!</h1>
-      <div class="experience-details-container">
-        <div class="about-containers">
-          <div class="details-container">
-            <h2 class="experience-sub-title">Programming Languages</h2>
-            <div class="article-container">
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Prolog</h3>
-                  <p>Basic</p>
+        <p class="section__text__p1">Check out My</p>
+        <h1 class="title">Experiences!</h1>
+        <div class="experience-details-container">
+            <div class="about-containers">
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Programming Languages</h2>
+                    <div class="article-container">
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Prolog</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Microsoft Assembly</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Haskell</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>HTML</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Java</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>C</h3>
+                                <p>Intermediate</p>
+                            </div>
+                        </article>
+                        <!-- Add more articles for programming languages here -->
+                    </div>
                 </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Microsoft Assembly</h3>
-                  <p>Basic</p>
+                <div class="details-container">
+                    <h2 class="experience-sub-title">Cyber Security</h2>
+                    <div class="article-container">
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Social Engineering</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Overflow Attacks</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Computer Networks</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Encryption</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <article class="grid-item">
+                            <img
+                                src="./assets/checkmark.png"
+                                alt="Experience icon"
+                                class="icon"
+                            />
+                            <div>
+                                <h3>Ddos Attacks</h3>
+                                <p>Basic</p>
+                            </div>
+                        </article>
+                        <!-- Add more articles for cyber security topics here -->
+                    </div>
                 </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Haskell</h3>
-                  <p>Basic</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>HTML</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>Java</h3>
-                  <p>Intermediate</p>
-                </div>
-              </article>
-              <article>
-                <img
-                  src="./assets/checkmark.png"
-                  alt="Experience icon"
-                  class="icon"
-                />
-                <div>
-                  <h3>C</h3>
-                  <p>Intermediate</p>
-                </div>
-            </article>
+            </div>
         </div>
-      </div>
-      
-      <div class="details-container">
-        <h2 class="experience-sub-title">Cyber Security</h2>
-        <div class="article-container">
-          <article>
-            <img
-              src="./assets/checkmark.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <div>
-              <h3>Social Engineering</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-          <article>
-            <img
-              src="./assets/checkmark.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <div>
-              <h3>Overflow Attacks</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-          <article>
-            <img
-              src="./assets/checkmark.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <div>
-              <h3>Computer Networks</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-          <article>
-            <img
-              src="./assets/checkmark.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <div>
-                
-              <h3>Encryption</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-          <article>
-            <img
-              src="./assets/checkmark.png"
-              alt="Experience icon"
-              class="icon"
-            />
-            <div>
-                
-              <h3>Ddos Attacks</h3>
-              <p>Basic</p>
-            </div>
-          </article>
-            </div>
-          </div>
-        </article>
-    </div>
-  </div>
-  
   <div class="details-container">
     <h2 class="experience-sub-title">Job Experiences</h2>
     <div class="article-container">
@@ -411,16 +419,6 @@
       </div>
     </section>
     <footer>
-      <nav>
-        <div class="nav-links-container">
-          <ul class="nav-links">
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#experience">My Experience</a></li>
-            <li><a href="#projects">My Projects</a></li>
-            <li><a href="#contact">Contact Info</a></li>
-          </ul>
-        </div>
-      </nav>
       <p>Copyright &#169; 2023 Tre'von Herman. All Rights Reserved.</p>
     </footer>
     <script src="script.js"></script>
