@@ -1,115 +1,553 @@
 /* General Styles */
+
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-* { margin: 0; padding: 0; } /* Reset margins and paddings */
-body { font-family: 'Poppins', sans-serif; padding-top: 17vh; } /* Font and top padding */
-html { scroll-behavior: smooth; } /* Smooth scroll for anchor links */
-p { color: rgb(85, 85, 85); } /* Paragraph color */
 
-/* Link and Button Transitions */
-a, .btn { transition: all 300ms ease; } /* Smooth transition effect */
-
-/* Navigation Bar */
-nav { /* Fixed, full width, flex, centered, with blur effect */
-    position: fixed; top: 0; left: 0; width: 100%;
-    display: flex; justify-content: center; align-items: center;
-    -moz-backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px); background-color: rgba(255, 255, 255, 0.185);
-    z-index: 1000; padding: 1rem -1rem; box-sizing: border-box;
+/* Reset Default Margin and Padding for All Elements */
+* {
+    margin: 0;
+    padding: 0;
 }
-#desktop-nav { /* Desktop navigation specific styles */
-    position: fixed; top: 0; width: 100%; height: 60px; z-index: 1000;
+
+/* Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    padding-top: 17vh; /* Add padding to avoid content being hidden under the fixed navbar */
+}
+
+/* Smooth Scrolling for HTML */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Paragraph Styles */
+p {
+    color: rgb(85, 85, 85);
+}
+
+/* Transition Styles */
+a, .btn {
+    transition: all 300ms ease;
+}
+
+/* Navigation Styles */
+
+/* Fixed Navigation Bar */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    -moz-backdrop-filter: blur(10px);  /* Add a blur effect */
+    -webkit-backdrop-filter: blur(10px); /* Safari-specific backdrop filter */
+    backdrop-filter: blur(10px); /* Firefox-specific backdrop filter */
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.185); /* Solid color with opacity for the blur effect */
+    padding: 1rem -1rem; /* Reduced padding for a smaller box */
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* Desktop Navigation Styles */
+#desktop-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px; /* Adjust the height as needed */
+    z-index: 1000; /* Ensure it appears above other content */
+    
+    /* Safari-specific property */
     -webkit-overflow-scrolling: touch;
 }
-body { padding-top: 60px; } /* Padding to avoid hidden content behind nav */
 
-/* Navigation Content */
-.nav-container { display: flex; align-items: center; gap: 2rem; }
-.nav-brand { font-size: 1.75rem; }
-.nav-links { list-style: none; display: flex; gap: 1rem; font-size: 1.5rem; }
-a { color: black; text-decoration: none; }
-a:hover { color: silver; text-decoration: underline; text-decoration-color: rgb(181, 181, 181); }
-.logo { font-size: 2rem; }
-.logo:hover { cursor: default; }
+/* Add padding-top to body to prevent content from being hidden behind the fixed navbar */
+body {
+    padding-top: 60px; /* Should match the height of your navigation bar */
+}
 
-/* Hamburger Menu for Mobile */
-#hamburger-nav { display: none; } /* Hidden by default */
-.hamburger-menu { position: absolute; top: 1rem; right: 1rem; display: inline-block; }
-.hamburger-icon { display: flex; flex-direction: column; justify-content: space-between; height: 20px; width: 30px; cursor: pointer; }
-.hamburger-icon span { width: 100%; height: 1px; background-color: black; transition: all 0.3s ease-in-out; }
-.menu-links { position: absolute; top: 100%; right: 20px; background-color: rgba(255, 255, 255, 0.878); width: fit-content; max-height: 0; overflow: hidden; transition: all 0.3s ease-in-out; }
-.menu-links a { display: block; padding: 10px; text-align: center; font-size: 1.5rem; color: black; text-decoration: none; transition: all 0.3s ease-in-out; }
-.menu-links li { list-style: none; }
-.menu-links.open { max-height: 350px; }
-.hamburger-icon.open span:first-child { transform: rotate(45deg) translate(10px, 5px); }
-.hamburger-icon.open span:nth-child(2) { opacity: 0; }
-.hamburger-icon.open span:last-child { transform: rotate(-45deg) translate(10px, -5px); }
+/* Navigation Container Styles */
+.nav-container {
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Space between name and nav links */
+}
 
-/* Mobile Navigation Display */
-@media screen and (max-width: 768px) { #hamburger-nav { display: block; } }
+/* Navigation Brand Styles */
+.nav-brand {
+    font-size: 1.75rem; /* Adjust the font size as needed */
+}
 
-/* Section Styling */
-section { padding-top: 4vh; height: 96vh; margin: 0 10rem; box-sizing: border-box; min-height: fit-content; }
-.section-container { display: flex; }
+/* Navigation Links Styles */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem; /* Space between nav links */
+    font-size: 1.5rem;
+}
 
-/* Profile Section */
-#profile { display: flex; justify-content: center; align-items: center; gap: 5rem; height: 80vh; }
-.section__pic__container { display: flex; justify-content: center; align-items: center; height: 30%; width: 30%; margin: 0 auto; margin-bottom: 2rem; }
-.section__pic-container img { display: block; max-width: 100%; max-height: 100%; min-width: 300px; min-height: 300px; }
-.section__text { align-self: center; text-align: center; }
-.section__text p { font-weight: 600; }
-.section__text__p1 { text-align: center; }
-.section__text__p2 { font-size: 1.75rem; margin-bottom: 1rem; }
-.title { font-size: 3rem; text-align: center; }
-#socials-container { display: flex; justify-content: center; margin-top: 1rem; gap: 1rem; }
+/* Anchor (Link) Styles */
+a {
+    color: black;
+    text-decoration: none;
+}
 
-/* Icons */
-.icon { cursor: pointer; height: 2rem; }
+/* Hovered Anchor (Link) Styles */
+a:hover {
+    color: silver;
+    text-decoration: underline;
+    text-decoration-color: rgb(181, 181, 181);
+}
 
-/* Buttons */
-.btn-container { display: flex; justify-content: center; gap: 1rem; }
-.btn { font-weight: 600; transition: all 300ms ease; padding: 1rem; width: 8rem; border-radius: 2rem; }
-.btn-color-1, .btn-color-2 { border: rgb(53, 53, 53) 0.1rem solid; }
-.btn-color-1:hover, .btn-color-2:hover { cursor: pointer; background: rgb(53, 53, 53); color: white; }
-.btn-color-1:hover { background: rgb(0, 0, 0); }
-.btn-color-2 { background: none; }
-.btn-color-2:hover { border: rgb(255, 255, 255) 0.1rem solid; }
+/* Logo Styles */
+.logo {
+    font-size: 2rem;
+}
 
-/* About Section */
-#about { position: relative; }
-.about-containers { gap: 2rem; margin-bottom: 2rem; margin-top: 2rem; }
-.about-details-container { justify-content: center; flex-direction: column; }
-.about-containers, .about-details-container { display: flex; }
-.about-pic { border-radius: 2rem; }
-.arrow { position: absolute; right: -5rem; bottom: 2.5rem; }
-.details-container { padding: 1.5rem; flex: 1; background: white; border-radius: 2rem; border: rgb(53, 53, 53) 0.1rem solid; border-color: rgb(163, 163, 163); text-align: center; }
-.section-container { gap: 4rem; height: 80%; }
-.section__pic-container { height: 400px; width: 400px; margin: auto 0; }
+/* Hovered Logo Styles */
+.logo:hover {
+    cursor: default;
+}
 
-/* Experience Section */
-#experience { position: relative; }
-.experience-sub-title { color: rgb(85, 85, 85); font-weight: 600; font-size: 1.75rem; margin-bottom: 2rem; }
-.experience-details-container { display: flex; justify-content: center; flex-direction: column; align-items: center; }
-.article-container { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 2.5rem; }
-.grid-item { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; flex: 1; }
-.grid-item .icon { cursor: default; }
-@media screen and (min-width: 769px) { .experience-details-container { grid-template-columns: repeat(2, 1fr); } } /* Two columns for larger screens */
+/* Hamburger Menu Styles */
 
-/* Projects Section */
-#projects { position: relative; }
-.color-container { border-color: rgb(163, 163, 163); background: rgb(250, 250, 250); }
-.project-img { border-radius: 2rem; width: 90%; height: 90%; }
-.project-title { margin: 1rem; color: black; }
-.project-btn { color: black; border-color: rgb(163, 163, 163); }
+/* Initially hide the hamburger menu */
+#hamburger-nav {
+    display: none;
+}
 
-/* Contact Section */
-#contact { display: flex; justify-content: center; flex-direction: column; height: 70vh; }
-.contact-info-upper-container { display: flex; justify-content: center; border-radius: 2rem; border: rgb(53, 53, 53) 0.1rem solid; border-color: rgb(163, 163, 163); background: rgb(250, 250, 250); margin: 2rem auto; padding: 0.5rem; }
-.contact-info-container { display: flex; align-items: center; justify-content: center; }
-.contact-info-container p { font-size: larger; margin-left: 0.5rem; }
-.contact-icon { cursor: default; padding-right: 0.25rem; padding-left: 0.25rem; }
-.email-icon { height: 2.5rem; padding: 0; margin: 0; }
-@media (min-width: 768px) { .contact-icon { padding-left: 0.5rem; } } /* Larger padding on bigger screens */
+/* Hamburger Menu Container Styles */
+.hamburger-menu {
+    position: absolute;
+    top: 1.5rem; /* moves from top */
+    right: 1rem; /* moves right corner */
+    display: inline-block;
+}
 
-/* Footer Section */
-footer { height: 10vh; margin: 0 1rem; }
-footer p { text-align: center; }
+/* Hamburger Icon Styles */
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 25px;
+    width: 30px;
+    cursor: pointer;
+}
+
+/* Hamburger Icon Span Styles */
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu Links Styles */
+.menu-links {
+    position: absolute;
+    top: 100%;
+    right: 20px; /* Add some right padding to move it away from the edge */
+    background-color: rgba(255, 255, 255, 0.878); /* Light gray semi-transparent background */
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu Link Styles */
+.menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu List Styles */
+.menu-links li {
+    list-style: none;
+}
+
+/* Open Menu Links Styles */
+.menu-links.open {
+    max-height: 350px;
+}
+
+/* Open Hamburger Icon Styles */
+.hamburger-icon.open span:first-child {
+    transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+/* Reset Hamburger Icon Span Styles */
+.hamburger-icon span:first-child,
+.hamburger-icon span:nth-child(2),
+.hamburger-icon span:last-child {
+    transform: none;
+    opacity: 1;
+}
+
+/* Media Query for Mobile-Sized Screens */
+@media screen and (max-width: 768px) {
+    /* Display the hamburger menu */
+    #hamburger-nav {
+        display: block;
+    }
+}
+
+/* Sections Styles */
+
+/* Common Styles for All Sections */
+section {
+    padding-top: 4vh;
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+}
+
+/* Common Styles for Section Containers */
+.section-container {
+    display: flex;
+}
+
+/* Profile Section Styles */
+
+/* Profile Section Container Styles */
+#profile {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    height: 80vh;
+}
+
+/* Profile Section Picture Container Styles */
+.section__pic-container {
+    display: flex;
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+/* Profile Section Text Styles */
+.section__text {
+    align-self: center;
+    text-align: center;
+}
+
+/* Profile Section Paragraph Styles */
+.section__text p {
+    font-weight: 600;
+}
+
+/* Profile Section Text P1 Styles */
+.section__text__p1 {
+    text-align: center;
+}
+
+/* Profile Section Text P2 Styles */
+.section__text__p2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Title Styles */
+.title {
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Socials Container Styles */
+#socials-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+/* Icon Styles */
+.icon {
+    cursor: pointer;
+    height: 2rem;
+}
+
+/* Button Container Styles */
+.btn-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+/* Button Styles */
+.btn {
+    font-weight: 600;
+    transition: all 300ms ease;
+    padding: 1rem;
+    width: 8rem;
+    border-radius: 2rem;
+}
+
+/* Button Color 1 and 2 Styles */
+.btn-color-1,
+.btn-color-2 {
+    border: rgb(53, 53, 53) 0.1rem solid;
+}
+
+/* Hovered Button Color 1 and 2 Styles */
+.btn-color-1:hover,
+.btn-color-2:hover {
+    cursor: pointer;
+}
+
+/* Hovered Button Color 1 Styles */
+.btn-color-1,
+.btn-color-2:hover {
+    background: rgb(53, 53, 53);
+    color: white;
+}
+
+/* Hovered Button Color 2 Styles */
+.btn-color-1:hover {
+    background: rgb(0, 0, 0);
+}
+
+/* Button Color 2 Styles */
+.btn-color-2 {
+    background: none;
+}
+
+/* Hovered Button Color 2 Styles */
+.btn-color-2:hover {
+    border: rgb(255, 255, 255) 0.1rem solid;
+}
+
+/* Reset Button Container Gap */
+.btn-container {
+    gap: 1rem;
+}
+
+/* About Section Styles */
+
+/* About Section Container Styles */
+#about {
+    position: relative;
+}
+
+/* About Section Containers Styles */
+.about-containers {
+    gap: 2rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+/* About Details Container Styles */
+.about-details-container {
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* About Containers and Details Container Styles */
+.about-containers,
+.about-details-container {
+    display: flex;
+}
+
+/* About Picture Styles */
+.about-pic {
+    border-radius: 2rem;
+}
+
+/* Arrow Styles */
+.arrow {
+    position: absolute;
+    right: -5rem;
+    bottom: 2.5rem;
+}
+
+/* Details Container Styles */
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: white;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    text-align: center;
+}
+
+/* Section Container Styles */
+.section-container {
+    gap: 4rem;
+    height: 80%;
+}
+
+/* Section Picture Container Styles */
+.section__pic-container {
+    height: 400px;
+    width: 400px;
+    margin: auto 0;
+}
+
+/* Experience Section Styles */
+
+/* Experience Section Container Styles */
+#experience {
+    position: relative;
+}
+
+/* Experience Subtitle Styles */
+.experience-sub-title {
+    color: rgb(85, 85, 85);
+    font-weight: 600;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+/* Experience Details Container Styles */
+.experience-details-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Article Container Styles */
+.article-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 2.5rem;
+}
+
+/* Grid Item Styles */
+.grid-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1; /* Equal distribution for all grid items */
+}
+
+/* Grid Item Icon Styles */
+.grid-item .icon {
+    cursor: default;
+}
+
+/* Media Query for Desktop Screens */
+@media screen and (min-width: 769px) {
+    .experience-details-container {
+        grid-template-columns: repeat(2, 1fr); /* Two columns layout */
+    }
+}
+
+/* Projects Section Styles */
+
+/* Projects Section Container Styles */
+#projects {
+    position: relative;
+}
+
+/* Color Container Styles */
+.color-container {
+    border-color: rgb(163, 163, 163);
+    background: rgb(250, 250, 250);
+}
+
+/* Project Image Styles */
+.project-img {
+    border-radius: 2rem;
+    width: 90%;
+    height: 90%;
+}
+
+/* Project Title Styles */
+.project-title {
+    margin: 1rem;
+    color: black;
+}
+
+/* Project Button Styles */
+.project-btn {
+    color: black;
+    border-color: rgb(163, 163, 163);
+}
+
+/* Contact Section Styles */
+
+/* Contact Section Container Styles */
+#contact {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 70vh;
+}
+
+/* Contact Info Upper Container Styles */
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: rgb(53, 53, 53) 0.1rem solid;
+    border-color: rgb(163, 163, 163);
+    background: rgb(250, 250, 250);
+    margin: 2rem auto;
+    padding: 0.5rem;
+}
+
+/* Contact Info Container Styles */
+.contact-info-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contact Info Paragraph Styles */
+.contact-info-container p {
+    font-size: larger;
+    margin-left: 0.5rem; /* Keeps text closer to the icon */
+}
+
+/* Contact Icon Styles */
+.contact-icon {
+    cursor: default;
+    padding-right: 0.25rem; /* Reduced right padding for the icon */
+    padding-left: 0.25rem; /* Default left padding for smaller screens */
+}
+
+/* Email Icon Styles */
+.email-icon {
+    height: 2.5rem;
+    padding: 0; /* Remove all padding from the email icon */
+    margin: 0; /* Remove all margin from the email icon */
+}
+
+/* Adjust left padding for larger screens */
+@media (min-width: 768px) {
+    .contact-icon {
+        padding-left: 0.5rem;
+    }
+}
+
+/* Footer Styles */
+
+/* Footer Container Styles */
+footer {
+    height: 10vh;
+    margin: 1 1rem;
+}
+
+/* Footer Paragraph Styles */
+footer p {
+    text-align: center;
+}
